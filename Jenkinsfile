@@ -1,9 +1,5 @@
 pipeline{
-    agent any
-    environment{    
-        FLASK_APP='flask_app.py'
-        FLASK_ENV='development'
-    }   
+    agent any  
     stages{
         stage('Checkout') {
             steps {
@@ -27,7 +23,6 @@ pipeline{
          stage('Deploy')
          {
              steps{
-            FLASK_ENV='development'
             sh 'python flask_app.py'
          }
          }
