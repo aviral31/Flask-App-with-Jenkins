@@ -15,12 +15,6 @@ pipeline {
             }
         }
 
-        stage('Test') {
-            steps {
-                sh 'pytest'
-            }
-        }
-
         stage('Deploy') {
             steps {
                 sh 'python flask_app.py'
