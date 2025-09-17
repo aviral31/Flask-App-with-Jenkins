@@ -10,7 +10,8 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'sudo pip install --break-system-packages -r requirements.txt'
+                sh 'pip install flask'
+                sh 'pip install pytest'
             }
         }
 
@@ -26,8 +27,4 @@ pipeline {
             }
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 9ca17dea2568dbdaf0ead910caaa2868075a43e7
