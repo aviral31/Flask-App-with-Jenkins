@@ -1,4 +1,3 @@
-#This is Jenkins pipeline for implementiong CI/CD for flask application
 pipeline{
     agent any
     environment{    
@@ -6,6 +5,10 @@ pipeline{
         FLASK_ENV='development'
     }   
     stages{
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/aviral31/Flask-App-with-Jenkins.git'
+            }
         stage ('Build')
         {
             sh 'apt-get update'
