@@ -1,30 +1,33 @@
-pipeline{
+pipeline {
     agent any  
-    stages{
+
+    stages {
         stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/aviral31/Flask-App-with-Jenkins.git'
             }
         }
-        stage ('Build')
-        {
-            steps{
-            sh 'sudo apt-get update'
-            sh 'sudo apt-get install python3-pip -y'
-            sh 'sudo pip install -r requirements.txt'
+
+        stage('Build') {
+            steps {
+                sh '''
+                  python3 -m venv venv
+                  ./venv/bin/pip install --upgrade pip
+                  ./venv/bin/pip install -r requirements.txt
+                '''
+            }
         }
+
+        stage('Test') {
+            steps {
+                sh './venv/bin/pytest'
+            }
         }
-         stage('Test')
-         {
-             steps{
-            sh 'sudo pytest'
-         }
-         }
-         stage('Deploy')
-         {
-             steps{
-            sh 'sudo python flask_app.py'
-         }
-         }
+
+        stage('Deploy') {
+            steps {
+                sh './venv/bin/python flask_app.py'
+            }
+        }
     }
-} 
+}
