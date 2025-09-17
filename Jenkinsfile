@@ -18,7 +18,14 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh 'python3 flask_app.py'
+                 sh '''
+          python3 flask_app.py &
+          FLASK_PID=$!
+          echo "Flask running with PID $FLASK_PID"
+          sleep 15   # simulate test time
+          kill $FLASK_PID
+          echo "Flask stopped"
+        '''
             }
         }
     }
