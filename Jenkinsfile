@@ -10,6 +10,7 @@ pipeline {
 
         stage('Build') {
             steps {
+                sh `sudo apt install python3 -y`
                 sh 'sudo apt install python3-flask -y'
                 sh 'sudo apt install python3-pytest -y'
             }
