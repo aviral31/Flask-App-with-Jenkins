@@ -9,6 +9,7 @@ pipeline{
             steps {
                 git branch: 'main', url: 'https://github.com/aviral31/Flask-App-with-Jenkins.git'
             }
+        }
         stage ('Build')
         {
             sh 'apt-get update'
