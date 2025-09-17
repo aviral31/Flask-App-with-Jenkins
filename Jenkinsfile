@@ -12,19 +12,24 @@ pipeline{
         }
         stage ('Build')
         {
+            steps{
             sh 'apt-get update'
             sh 'apt-get install python3-pip -y'
             sh 'pip install -r requirements.txt'
         }
+        }
          stage('Test')
          {
+             steps{
             sh 'pytest'
+         }
          }
          stage('Deploy')
          {
+             steps{
             FLASK_ENV='development'
             sh 'python flask_app.py'
          }
+         }
     }
-
 } 
