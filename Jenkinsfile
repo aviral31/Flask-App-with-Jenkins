@@ -10,24 +10,29 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'sudo pip install --break-system-packages -r requirements.txt'
+                sh 'sudo apt-get install python3-pip -y'
+                sh 'sudo apt install python3-flask -y'
+                sh 'sudo apt install python3-pytest -y'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'pytest'
+                sh 'pytest --maxfail=1 --disable-warnings -q'
             }
         }
 
         stage('Deploy') {
             steps {
-                sh 'python flask_app.py'
+                sh '''
+          python3 flask_app.py &
+          FLASK_PID=$!
+          echo "Flask running with PID $FLASK_PID"
+          sleep 15   # simulate test time
+          kill $FLASK_PID
+          echo "Flask stopped"
+        '''
             }
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 9ca17dea2568dbdaf0ead910caaa2868075a43e7
