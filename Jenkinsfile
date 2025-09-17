@@ -10,7 +10,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'sudo pip install -r requirements.txt'
+                sh 'sudo pip install --break-system-packages -r requirements.txt'
             }
         }
 
