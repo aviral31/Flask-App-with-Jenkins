@@ -1,4 +1,3 @@
-#This is Jenkins pipeline for implementiong CI/CD for flask application
 pipeline{
     agent any
     environment{    
