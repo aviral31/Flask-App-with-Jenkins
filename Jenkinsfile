@@ -10,7 +10,7 @@ pipeline{
         {
             steps{
             sh 'sudo apt-get update'
-            sh 'sudo apt-get install python3-pip -y'
+            sh 'sudo apt install python3-xyz -y'
             sh 'sudo pip install -r requirements.txt'
         }
         }
