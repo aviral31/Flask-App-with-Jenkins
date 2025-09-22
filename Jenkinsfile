@@ -32,7 +32,7 @@ pipeline {
     stage('Deploy (staging)') {
       steps {
         sh '''
-          nohup ./venv/bin/python flask_app.py > flask.log 2>&1 &
+          nohup ./venv/bin/python3 flask_app.py > flask.log 2>&1 &
           echo $! > flask.pid
           sleep 10
           curl -f http://127.0.0.1:5000/ || (echo "Smoke test failed"; cat flask.log; exit 1)
