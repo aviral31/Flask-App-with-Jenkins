@@ -34,7 +34,7 @@ pipeline {
         sh '''
           nohup ./venv/bin/python flask_app.py > flask.log 2>&1 &
           echo $! > flask.pid
-          sleep 2
+          sleep 15
           curl -f http://127.0.0.1:5000/ || (echo "Smoke test failed"; cat flask.log; exit 1)
         '''
       }
