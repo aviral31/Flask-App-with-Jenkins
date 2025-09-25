@@ -17,9 +17,8 @@ Before running the pipeline, ensure the following are installed and configured:
   - Pipeline
   - GitHub plugin
   - Git plugin
-  - Email Extension (optional, for notifications)
 - **Python 3.x** with `venv` support on the Jenkins agent
-- **GitHub repository** forked and connected to Jenkins
+- **GitHub repository** connected to Jenkins
 - **GitHub webhook** configured for push events:
   - URL: `https://jenkinsacademics.herovired.com//github-webhook/`
   - Content type: `application/json`
