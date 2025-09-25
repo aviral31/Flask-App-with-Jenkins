@@ -1,4 +1,3 @@
-
 ````
 # Flask CI/CD Pipeline with Jenkins
 
@@ -11,8 +10,6 @@ The pipeline automates the following:
 4. **Notify** – Send email notifications on success or failure.
 
 The pipeline is defined in a `Jenkinsfile` stored at the root of this repository.
-
----
 
 ## ⚙️ Prerequisites
 Before running the pipeline, ensure the following are installed and configured:
@@ -27,8 +24,6 @@ Before running the pipeline, ensure the following are installed and configured:
 - **GitHub webhook** configured for push events:
   - URL: `https://jenkinsacademics.herovired.com//github-webhook/`
   - Content type: `application/json`
-
----
 
 ## 🏗️ Pipeline Stages
 
@@ -71,8 +66,6 @@ Before running the pipeline, ensure the following are installed and configured:
 * **On Failure**: Email notification sent with error details, Flask app stopped.
 * **Always**: Archive logs (`flask.log`) as build artifacts.
 
----
-
 ## 📂 Repository Structure
 
 ```
@@ -83,23 +76,21 @@ Before running the pipeline, ensure the following are installed and configured:
 └── README.md            # Project documentation
 ```
 
----
-
 ## 📸 Screenshots
 
 Please replace the placeholders below with your actual Jenkins pipeline screenshots before submission:
 
 1. **Pipeline Overview (all stages visible)**
-   ![Pipeline Overview](screenshots/pipeline_overview.png)
+   ![Pipeline Overview](https://github.com/aviral31/Flask-App-with-Jenkins/blob/f4c3ed125cf257e8f85f079b37589e6652fc5253/JF1.png)(https://github.com/aviral31/Flask-App-with-Jenkins/blob/f4c3ed125cf257e8f85f079b37589e6652fc5253/JF2.png)(https://github.com/aviral31/Flask-App-with-Jenkins/blob/f4c3ed125cf257e8f85f079b37589e6652fc5253/JF3.png)
 
 2. **Build & Test stage success**
-   ![Build and Test Stage](screenshots/build_test_success.png)
+   ![Build and Test Stage](https://github.com/aviral31/Flask-App-with-Jenkins/blob/f4c3ed125cf257e8f85f079b37589e6652fc5253/test.png)(https://github.com/aviral31/Flask-App-with-Jenkins/blob/f4c3ed125cf257e8f85f079b37589e6652fc5253/Deploy.png)
 
-3. **Deploy stage (Flask app running + smoke test)**
-   ![Deploy Stage](screenshots/deploy_stage.png)
+3. **Deploy stage (Flask app running)**
+   ![Flask App](https://github.com/aviral31/Flask-App-with-Jenkins/blob/2eaf9b1bafc97f4fbc7844a6ca4b2cd71b34b6f1/app_running.png)
 
 4. **Email notification (success/failure)**
-   ![Email Notification](screenshots/email_notification.png)
+   ![Email Notification](https://github.com/aviral31/Flask-App-with-Jenkins/blob/f4c3ed125cf257e8f85f079b37589e6652fc5253/Jenkinsemailnotification.png)
 
 ---
 
