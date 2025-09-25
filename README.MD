@@ -102,6 +102,4 @@ Please replace the placeholders below with your actual Jenkins pipeline screensh
 This project demonstrates how to implement a **Jenkins CI/CD pipeline** for a Flask application using **virtual environments, pytest, and Jenkins declarative pipelines**.
 The setup ensures reliable builds, automated testing, and deployment with minimal manual intervention.
 
-```
-
 ---
