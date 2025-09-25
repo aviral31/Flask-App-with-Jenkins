@@ -1,26 +1,113 @@
-## Flask-App-with-Jenkins
+---
+````
+# Flask CI/CD Pipeline with Jenkins
 
-This repository demonstrates a minimal Flask web application with a Jenkins pipeline for CI/CD automation.
+## 📌 Project Overview
+This project sets up a **CI/CD pipeline** for a simple Flask web application using **Jenkins**.  
+The pipeline automates the following:
+1. **Build** – Install Python dependencies inside a virtual environment.
+2. **Test** – Run unit tests with `pytest`.
+3. **Deploy** – Deploy the Flask app to a staging environment if tests pass.
+4. **Notify** – Send email notifications on success or failure.
 
-### Project Structure
-- `flask_app.py`: Main Flask application. Exposes a single route (`/`) returning "Hello, World!".
-- `requirements.txt`: Python dependencies (only Flask required).
-- `Jenkinsfile`: Jenkins pipeline configuration (add stages for install, test, deploy).
+The pipeline is defined in a `Jenkinsfile` stored at the root of this repository.
 
-### Setup & Usage
-1. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-2. **Run the app locally:**
-   ```bash
-   python flask_app.py
-   ```
-   The app runs on [http://localhost:5000](http://localhost:5000).
+---
 
-### CI/CD Pipeline
-Use Jenkins to automate install, test, and deploy steps. Example pipeline stages:
+## ⚙️ Prerequisites
+Before running the pipeline, ensure the following are installed and configured:
 
-### Notes
-- All logic is in `flask_app.py`. Add new features or modules as needed.
-- Update `requirements.txt` for new dependencies.
+- **Jenkins** (with the following plugins):
+  - Pipeline
+  - GitHub plugin
+  - Git plugin
+  - Email Extension (optional, for notifications)
+- **Python 3.x** with `venv` support on the Jenkins agent
+- **GitHub repository** forked and connected to Jenkins
+- **GitHub webhook** configured for push events:
+  - URL: `https://jenkinsacademics.herovired.com//github-webhook/`
+  - Content type: `application/json`
+
+---
+
+## 🏗️ Pipeline Stages
+
+### 1. Checkout
+- Jenkins checks out the latest code from the GitHub repository.
+
+### 2. Build
+- Creates a Python virtual environment (`venv`).
+- Installs required dependencies from `requirements.txt`:
+  ```bash
+  python3 -m venv venv
+  ./venv/bin/pip install -r requirements.txt
+````
+
+### 3. Test
+
+* Runs unit tests with `pytest`:
+
+  ```bash
+  ./venv/bin/pytest
+  ```
+
+### 4. Deploy
+
+* Starts the Flask application in the background:
+
+  ```bash
+  nohup ./venv/bin/python flask_app.py > flask.log 2>&1 &
+  echo $! > flask.pid
+  ```
+* Performs a smoke test using `curl` to ensure the app responds:
+
+  ```bash
+  curl -f http://127.0.0.1:5000/
+  ```
+
+### 5. Post Actions
+
+* **On Success**: Email notification sent with job details.
+* **On Failure**: Email notification sent with error details, Flask app stopped.
+* **Always**: Archive logs (`flask.log`) as build artifacts.
+
+---
+
+## 📂 Repository Structure
+
+```
+├── flask_app.py         # Main Flask application
+├── requirements.txt     # Python dependencies
+├── test_flask_app.py    # Unit tests (pytest)
+├── Jenkinsfile          # CI/CD pipeline definition
+└── README.md            # Project documentation
+```
+
+---
+
+## 📸 Screenshots
+
+Please replace the placeholders below with your actual Jenkins pipeline screenshots before submission:
+
+1. **Pipeline Overview (all stages visible)**
+   ![Pipeline Overview](screenshots/pipeline_overview.png)
+
+2. **Build & Test stage success**
+   ![Build and Test Stage](screenshots/build_test_success.png)
+
+3. **Deploy stage (Flask app running + smoke test)**
+   ![Deploy Stage](screenshots/deploy_stage.png)
+
+4. **Email notification (success/failure)**
+   ![Email Notification](screenshots/email_notification.png)
+
+---
+
+## 🎯 Conclusion
+
+This project demonstrates how to implement a **Jenkins CI/CD pipeline** for a Flask application using **virtual environments, pytest, and Jenkins declarative pipelines**.
+The setup ensures reliable builds, automated testing, and deployment with minimal manual intervention.
+
+```
+
+---
