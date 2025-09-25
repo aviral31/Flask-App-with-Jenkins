@@ -1,4 +1,3 @@
-````
 # Flask CI/CD Pipeline with Jenkins
 
 ## 📌 Project Overview
@@ -28,11 +27,11 @@ Before running the pipeline, ensure the following are installed and configured:
 ## 🏗️ Pipeline Stages
 
 ### 1. Checkout
-- Jenkins checks out the latest code from the GitHub repository.
+*  Jenkins checks out the latest code from the GitHub repository.
 
 ### 2. Build
-- Creates a Python virtual environment (`venv`).
-- Installs required dependencies from `requirements.txt`:
+*  Creates a Python virtual environment (`venv`).
+*  Installs required dependencies from `requirements.txt`:
   ```bash
   python3 -m venv venv
   ./venv/bin/pip install -r requirements.txt
