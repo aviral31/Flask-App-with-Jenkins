@@ -81,10 +81,13 @@ Before running the pipeline, ensure the following are installed and configured:
 Please replace the placeholders below with your actual Jenkins pipeline screenshots before submission:
 
 1. **Pipeline Overview (all stages visible)**
-   ![Pipeline Overview](https://github.com/aviral31/Flask-App-with-Jenkins/blob/f4c3ed125cf257e8f85f079b37589e6652fc5253/JF1.png)(https://github.com/aviral31/Flask-App-with-Jenkins/blob/f4c3ed125cf257e8f85f079b37589e6652fc5253/JF2.png)(https://github.com/aviral31/Flask-App-with-Jenkins/blob/f4c3ed125cf257e8f85f079b37589e6652fc5253/JF3.png)
+   ![Pipeline Overview](https://github.com/aviral31/Flask-App-with-Jenkins/blob/f4c3ed125cf257e8f85f079b37589e6652fc5253/JF1.png)
+![Image Alt](https://github.com/aviral31/Flask-App-with-Jenkins/blob/f4c3ed125cf257e8f85f079b37589e6652fc5253/JF2.png)
+![Image Alt](https://github.com/aviral31/Flask-App-with-Jenkins/blob/f4c3ed125cf257e8f85f079b37589e6652fc5253/JF3.png)
 
 2. **Build & Test stage success**
-   ![Build and Test Stage](https://github.com/aviral31/Flask-App-with-Jenkins/blob/f4c3ed125cf257e8f85f079b37589e6652fc5253/test.png)(https://github.com/aviral31/Flask-App-with-Jenkins/blob/f4c3ed125cf257e8f85f079b37589e6652fc5253/Deploy.png)
+   ![Build and Test Stage](https://github.com/aviral31/Flask-App-with-Jenkins/blob/f4c3ed125cf257e8f85f079b37589e6652fc5253/test.png)
+![Image Alt](https://github.com/aviral31/Flask-App-with-Jenkins/blob/f4c3ed125cf257e8f85f079b37589e6652fc5253/Deploy.png)
 
 3. **Deploy stage (Flask app running)**
    ![Flask App](https://github.com/aviral31/Flask-App-with-Jenkins/blob/2eaf9b1bafc97f4fbc7844a6ca4b2cd71b34b6f1/app_running.png)
